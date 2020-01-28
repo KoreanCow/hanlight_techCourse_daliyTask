@@ -18,7 +18,7 @@ const colors = [
 
 const initialState = {
   count: 0,
-  selectedColor: 'black'
+  selectedColor: '#ff0000'
 }
 
 function reducer(state, action){
@@ -26,13 +26,13 @@ function reducer(state, action){
     case 'SELECT_COLOR':
       return {
         ...state,
-        // selectedColor: state.bgColor
+        selectedColor: action.color
       }
     case 'INCREMENT':
-      return { count: state.count + 1}
+      return {...state, count: state.count + 1}
       // return state.count + 1;
     case 'DECREMENT':
-      return { count: state.count - 1}
+      return {...state, count: state.count - 1}
       // return state.count - 1;
     default:
       return state;
