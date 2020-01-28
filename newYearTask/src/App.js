@@ -18,6 +18,10 @@ const colors = [
 
 function reducer(state, action){
     switch(action.type) {
+    case 'SELECTE_COLOR':
+      return {
+        
+      }
     case 'INCREMENT':
       return state + 1;
     case 'DECREMENT':
@@ -30,19 +34,19 @@ function reducer(state, action){
 export default function App() {
   // 밑의 두 줄을 지우고 작업하세요.
   // const dispatch = action => console.log(action);
-  const state = { color: "what can you do?",/* count: "this is count" */};
+  // const state = { color: "green"};
   
-  const [count, dispatch] = useReducer(reducer, 0);
+  const [state, dispatch] = useReducer(reducer, 0);
   return (
     <Wrapper>
       <Palette
         colors={colors}
         selectedColor={state.color}
-        // dispatch={dispatch}
+        dispatch={dispatch}
       />
       <Text
+        count={state}
         selectedColor={state.color}
-        count={count}
         dispatch={dispatch}
       />
     </Wrapper>

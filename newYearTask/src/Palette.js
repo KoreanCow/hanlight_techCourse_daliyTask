@@ -3,18 +3,14 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
-
   display: flex;
 `;
 
 const Color = styled.div`
   width: 2rem;
   height: 2rem;
-
   margin-right: 1rem;
-
   background-color: ${({ bgColor }) => bgColor};
-
   border-radius: 50%;
   border: ${({ bgColor, selectedColor }) =>
     bgColor === selectedColor ? "2px solid Grey" : "2px solid #ffffff"};
@@ -28,12 +24,17 @@ const Color = styled.div`
 // 모르겠다면 질문!
 
 export default function Palette({ colors, selectedColor, dispatch }) {
-  // 위의 주석과 아래의 'will show color list'를 지우고 작업하세요.
+  const onClick = () => dispatch({ type: 'SELECT_COLOR'})
   return(
   <Wrapper>
-    {colors.map(color => {
-      // pk = {color.pk}
-    })}
+    {colors.map( color => (
+      <Color 
+      selectedColor={selectedColor}
+      onClick={onClick}
+      bgColor={color.color}
+      key={color.pk}
+      />      
+      ))}
   </Wrapper>
   ) 
 }
