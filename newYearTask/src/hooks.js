@@ -1,5 +1,5 @@
 // 이 파일에 useInput을 작성하세요.
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 
 // function useInput(initialForm) {
 //     const [input, setInput] = useState('');
@@ -8,13 +8,9 @@ import { useState, useCallback } from 'react';
 //     return [input, onChange];
 // }
 
-const useInput = (initValue) => {
-
-  const [input, setInput ] = useState(initValue)
-  
-  const onChange = useCallback(e => {
-      setInput(e.target.value)
-  })
+const useInput = (Value) => {
+  const [input, setInput ] = useState(Value)
+  const onChange = e => setInput(e.target.value)
   return { onChange, input }
 }
 

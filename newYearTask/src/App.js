@@ -16,37 +16,41 @@ const colors = [
   { pk: 5, color: "#7700ff" }
 ];
 
+const initialState = {
+  count: 0,
+  selectedColor: 'black'
+}
+
 function reducer(state, action){
     switch(action.type) {
-    case 'SELECTE_COLOR':
+    case 'SELECT_COLOR':
       return {
-        
+        ...state,
+        // selectedColor: state.bgColor
       }
     case 'INCREMENT':
-      return state + 1;
+      return { count: state.count + 1}
+      // return state.count + 1;
     case 'DECREMENT':
-      return state - 1;
+      return { count: state.count - 1}
+      // return state.count - 1;
     default:
       return state;
   }
 }
 
 export default function App() {
-  // 밑의 두 줄을 지우고 작업하세요.
-  // const dispatch = action => console.log(action);
-  // const state = { color: "green"};
-  
-  const [state, dispatch] = useReducer(reducer, 0);
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <Wrapper>
       <Palette
         colors={colors}
-        selectedColor={state.color}
+        selectedColor={state.selectedColor}
         dispatch={dispatch}
       />
       <Text
-        count={state}
-        selectedColor={state.color}
+        count={state.count}
+        selectedColor={state.selectedColor}
         dispatch={dispatch}
       />
     </Wrapper>

@@ -24,13 +24,14 @@ const Color = styled.div`
 // 모르겠다면 질문!
 
 export default function Palette({ colors, selectedColor, dispatch }) {
-  const onClick = () => dispatch({ type: 'SELECT_COLOR'})
+  const select = () => dispatch({ type: 'SELECT_COLOR'})
+  const eve = () => console.log('test');
   return(
   <Wrapper>
     {colors.map( color => (
       <Color 
+      onClick={select, eve}
       selectedColor={selectedColor}
-      onClick={onClick}
       bgColor={color.color}
       key={color.pk}
       />      
