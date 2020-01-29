@@ -1,4 +1,4 @@
-import React, {useReducer} from "react";
+import React, { useReducer } from "react";
 import styled from "styled-components";
 import Palette from "./Palette";
 import Text from "./Text";
@@ -18,22 +18,17 @@ const colors = [
 
 const initialState = {
   count: 0,
-  selectedColor: '#ff0000'
-}
+  selectedColor: "#000000"
+};
 
-function reducer(state, action){
-    switch(action.type) {
-    case 'SELECT_COLOR':
-      return {
-        ...state,
-        selectedColor: action.color
-      }
-    case 'INCREMENT':
-      return {...state, count: state.count + 1}
-      // return state.count + 1;
-    case 'DECREMENT':
-      return {...state, count: state.count - 1}
-      // return state.count - 1;
+function reducer(state, action) {
+  switch (action.type) {
+    case "SELECT_COLOR":
+      return { ...state, selectedColor: action.select.color };
+    case "INCREMENT":
+      return { ...state, count: state.count + 1 };
+    case "DECREMENT":
+      return { ...state, count: state.count - 1 };
     default:
       return state;
   }
