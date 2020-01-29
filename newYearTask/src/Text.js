@@ -20,18 +20,15 @@ const Typography = styled.p`
 
 export default function Text({ selectedColor, count, dispatch }) {
 
-  const { input, onChange } = useInput('')
+  const [input, onChange]= useInput('')
   
-  const increment = () => dispatch({ type: "INCREMENT" });
-  const decrement = () => dispatch({ type: "DECREMENT" });
-
   return (
     <Wrapper>
       <Input value={input} placeholder='적어주세용'onChange={onChange} />
       <Typography color={selectedColor}>{input}</Typography>
       <Typography color={selectedColor}>{count}</Typography>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
+      <button onClick={() => dispatch({ type: 'INCREMENT'})}>+</button>
+      <button onClick={() => dispatch({ type: 'DECREMENT'})}>-</button>
     </Wrapper>
   );
 }
